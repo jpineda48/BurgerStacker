@@ -8,9 +8,12 @@ export default class BurgerPane extends Component {
         const { ingredients } = this.props
 
         let burgerBits = ingredients.map((ing, idx) => ( 
-            <li key={idx}>
-                <Ingredient ingredient= {ing} />
-            </li>
+            <ul key={idx}>
+                <Ingredient ingredient= {ing}
+                 itemKey={idx}
+                 clickFun={this.props.remove}
+                />
+            </ul>
 
         ))
         
