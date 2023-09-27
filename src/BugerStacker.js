@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import IngList from './IngList'
+import BurgerPane from './BurgerPane'
 
 
 export default class BurgerStacker extends Component {
@@ -17,18 +18,42 @@ export default class BurgerStacker extends Component {
             {name: 'Tomato', color: 'tomato'},
             {name: 'Bacon', color: 'maroon'},
             {name: 'Onion', color: 'lightyellow'}
-          ]
+          ],
+          burgerIngredients: []
     }
     ingredientsJsx = this.state.ingredients.map(ing => {
         return <p>{ing.name}</p>
     })
 
+    addToStack = (e) => {
+        const ingName = e.target.innerText 
+        const ingColor = e.target.style.backgroundcolor 
+        this.setState({
+            burgerIngredients: [
+                {name: ingName, color:ingColor},
+                ...this.state.burgerIngredients
+                
+            ]
+        })
+
+    }
+        ///clear burger ingredients
+    clearBurger = () => {
+        this.setState({
+            burgerIngredients:[]
+        })
+    }    
     render(){
         return (
-            <div>
+            <>
             <h1>Burger Stacker</h1>
-            <IngList ingredients={this.state.ingredients}/>
+            <div className='panes'>
+            <IngList ingredients={this.state.ingredients}
+              add = {this.addToStack}
+            />
+            <BurgerPane ingredients={this.state.burgerIngredients} clear={this.clearBurger}/>
             </div>
+            </>
 
         )
     }

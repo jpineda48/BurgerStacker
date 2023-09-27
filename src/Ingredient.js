@@ -13,7 +13,7 @@ export default class Ingredient extends Component {
         return(
             <p
             style={{backgroundColor:color}}
-            
+            onClick={this.props.clickFunc}
             >{name}</p>
         )
     }

@@ -6,20 +6,23 @@ export default class IngList extends Component {
 
     render(){
          
-        const { ingredients } = this.props
+        const { ingredients, add } = this.props
 
         let allIngs = ingredients.map((ing, idx) => ( 
             <li key={idx}>
-                <Ingredient ingredient= {ing} />
+                <Ingredient ingredient= {ing}
+                            clickFunc={add}
+                />
             </li>
 
         ))
         return(
-            <>
-            <p>Ingregients List</p>
-            {allIngs}
+            <section className="pane"> 
+                <h3>Ingregients List</h3>
+                {allIngs}
+            </section>
 
-            </>
+            
         )
     }
 }

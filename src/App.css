@@ -8,3 +8,27 @@ li {
 p {
   padding: 5px;
 }
+
+.panes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 1em .3em;
+  padding: 0 2em;
+  width: 45%;
+}
+button {
+  margin: 15px;
+  height: 40px;
+  width: 20%;
+  align-self: center;
+  background-color: bisque;
+  border-radius: 10px;
+}
